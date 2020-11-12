@@ -22,7 +22,7 @@ from userge.utils import get_file_id_and_ref
 
 _LOG = logging.getLogger(__name__)
 _IS_STICKER = False
-_DEFAULT = "https://t.me/theUserge/31"
+_DEFAULT = "https://t.me/xenovialogs/7"
 _CHAT, _MSG_ID = None, None
 _LOGO_ID, _LOGO_REF = None, None
 
@@ -40,32 +40,20 @@ async def alive(message: Message):
             _set_data(True)
     markup = None
     output = f"""
-**⏱ uptime** : `{userge.uptime}`
-**💡 version** : `{get_version()}`
-**⚙️ mode** : `{_get_mode().upper()}`
-
-• **sudo**: `{_parse_arg(Config.SUDO_ENABLED)}`
-• **pm-guard**: `{_parse_arg(not Config.ALLOW_ALL_PMS)}`
-• **anti-spam**: `{_parse_arg(Config.ANTISPAM_SENTRY)}`"""
-    if Config.HEROKU_APP:
-        output += f"\n• **dyno-saver**: `{_parse_arg(Config.RUN_DYNO_SAVER)}`"
-    output += f"""
-• **unofficial**: `{_parse_arg(Config.LOAD_UNOFFICIAL_PLUGINS)}`
-
-    **__Python__**: `{versions.__python_version__}`
-    **__Pyrogram__**: `{versions.__pyro_version__}`"""
-    if not message.client.is_bot:
-        output += f"""\n
-🎖 **{versions.__license__}** | 👥 **{versions.__copyright__}** | 🧪 **[Repo]({Config.UPSTREAM_REPO})**
+**Uptime** : `{userge.uptime}`
 """
+    if Config.HEROKU_APP:
+        output += f"\n• **X-parser**: `{_parse_arg(Config.RUN_DYNO_SAVER)}`"
+    
+    if not message.client.is_bot:
+        output += f"""\n36981X00005746A Xhash ver 3.6"""
     else:
         copy_ = "https://github.com/UsergeTeam/Userge/blob/master/LICENSE"
         markup = InlineKeyboardMarkup([
             [
-                InlineKeyboardButton(text="👥 UsergeTeam", url="https://github.com/UsergeTeam"),
-                InlineKeyboardButton(text="🧪 Repo", url=Config.UPSTREAM_REPO)
-            ],
-            [InlineKeyboardButton(text="🎖 GNU GPL v3.0", url=copy_)]
+                InlineKeyboardButton(text="REPO", url="https://github.com/UsergeTeam"),
+            ]
+           
         ])
     if _MSG_ID == "text_format":
         return await message.edit(output, reply_markup=markup, disable_web_page_preview=True)
